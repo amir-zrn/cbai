@@ -20,6 +20,7 @@ const form = useForm({
 });
 
 const submit = () => {
+    console.log(data)
     form.transform(data => ({
         ...data,
         remember: form.remember ? 'on' : '',
@@ -42,6 +43,7 @@ const submit = () => {
         </div>
 
         <form @submit.prevent="submit">
+            {{ csrf_field() }}
             <div>
                 <InputLabel for="email" value="Email" />
                 <TextInput
